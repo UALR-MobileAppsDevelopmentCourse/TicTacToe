@@ -79,25 +79,26 @@
         android:id="@+id/winnerPlayerViewGroup"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="24dp"
         android:gravity="center"
         android:orientation="vertical"
         android:visibility="gone"
-        tools:visibility="visible"
-        >
+        tools:visibility="visible">
 
         <TextView
             android:id="@+id/winnerPlayerLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="40sp"
             android:layout_margin="20dp"
+            android:textSize="40sp"
             tools:text="X" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="30sp"
-            android:text="@string/winner" />
+            android:text="@string/winner"
+            android:textSize="30sp" />
 
     </LinearLayout>
 
