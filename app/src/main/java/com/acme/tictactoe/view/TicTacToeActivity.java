@@ -2,9 +2,6 @@ package com.acme.tictactoe.view;
 
 import android.os.Bundle;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -37,25 +34,11 @@ public class TicTacToeActivity extends AppCompatActivity implements TicTacToeCon
         presenter.setup();
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu_tictactoe, menu);
-        return true;
-    }
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.action_reset:
-                presenter.onResetSelected();
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
-        }
+    public void onResetClicked(View v) {
+        presenter.onResetSelected();
     }
 
     public void onCellClicked(View v) {
-
         Button button = (Button) v;
         String tag = button.getTag().toString();
         int row = Integer.valueOf(tag.substring(0,1));
