@@ -49,6 +49,8 @@ public class TicTacToeActivity extends AppCompatActivity implements TicTacToeCon
 
     }
 
+    // TicaTacToeContract.View interface
+
     @Override
     public void setButtonText(int row, int col, String text) {
         Button btn = buttonGrid.findViewWithTag("" + row + col);
@@ -57,17 +59,20 @@ public class TicTacToeActivity extends AppCompatActivity implements TicTacToeCon
         }
     }
 
+    @Override
     public void clearButtons() {
         for( int i = 0; i < buttonGrid.getChildCount(); i++ ) {
             ((Button) buttonGrid.getChildAt(i)).setText("");
         }
     }
 
+    @Override
     public void showWinner(String winningPlayerDisplayLabel) {
         winnerPlayerLabel.setText(winningPlayerDisplayLabel);
         winnerPlayerViewGroup.setVisibility(View.VISIBLE);
     }
 
+    @Override
     public void clearWinnerDisplay() {
         winnerPlayerViewGroup.setVisibility(View.GONE);
         winnerPlayerLabel.setText("");
