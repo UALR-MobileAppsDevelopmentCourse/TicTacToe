@@ -1,39 +1,25 @@
 package com.acme.tictactoe.presenter;
 
+import com.acme.tictactoe.contract.TicTacToeContract;
 import com.acme.tictactoe.model.Board;
 import com.acme.tictactoe.model.Player;
-import com.acme.tictactoe.view.TicTacToeView;
 
-public class TicTacToePresenter implements Presenter {
+public class TicTacToePresenter implements TicTacToeContract.Presenter {
 
-    private TicTacToeView view;
+    private TicTacToeContract.View view;
     private Board model;
 
-    public TicTacToePresenter(TicTacToeView view) {
+    public TicTacToePresenter(TicTacToeContract.View view) {
         this.view = view;
         this.model = new Board();
     }
 
     @Override
-    public void onCreate() {
+    public void setup() {
         model = new Board();
     }
 
     @Override
-    public void onPause() {
-
-    }
-
-    @Override
-    public void onResume() {
-
-    }
-
-    @Override
-    public void onDestroy() {
-
-    }
-
     public void onButtonSelected(int row, int col) {
         Player playerThatMoved = model.mark(row, col);
 
@@ -46,11 +32,11 @@ public class TicTacToePresenter implements Presenter {
         }
     }
 
+    @Override
     public void onResetSelected() {
         view.clearWinnerDisplay();
         view.clearButtons();
         model.restart();
     }
-
 
 }

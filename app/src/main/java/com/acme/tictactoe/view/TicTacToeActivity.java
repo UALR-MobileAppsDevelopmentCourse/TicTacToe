@@ -13,9 +13,11 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.acme.tictactoe.R;
+import com.acme.tictactoe.contract.TicTacToeContract;
 import com.acme.tictactoe.presenter.TicTacToePresenter;
 
-public class TicTacToeActivity extends AppCompatActivity implements TicTacToeView {
+
+public class TicTacToeActivity extends AppCompatActivity implements TicTacToeContract.View {
 
     private static String TAG = TicTacToeActivity.class.getName();
 
@@ -23,34 +25,16 @@ public class TicTacToeActivity extends AppCompatActivity implements TicTacToeVie
     private View winnerPlayerViewGroup;
     private TextView winnerPlayerLabel;
 
-    TicTacToePresenter presenter = new TicTacToePresenter(this);
+    TicTacToeContract.Presenter presenter = new TicTacToePresenter(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.tictactoe);
-        winnerPlayerLabel = (TextView) findViewById(R.id.winnerPlayerLabel);
+        winnerPlayerLabel = findViewById(R.id.winnerPlayerLabel);
         winnerPlayerViewGroup = findViewById(R.id.winnerPlayerViewGroup);
-        buttonGrid = (ViewGroup) findViewById(R.id.buttonGrid);
-        presenter.onCreate();
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-        presenter.onPause();
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        presenter.onResume();
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        presenter.onDestroy();
+        buttonGrid = findViewById(R.id.buttonGrid);
+        presenter.setup();
     }
 
     @Override
@@ -84,7 +68,7 @@ public class TicTacToeActivity extends AppCompatActivity implements TicTacToeVie
 
     @Override
     public void setButtonText(int row, int col, String text) {
-        Button btn = (Button) buttonGrid.findViewWithTag("" + row + col);
+        Button btn = buttonGrid.findViewWithTag("" + row + col);
         if(btn != null) {
             btn.setText(text);
         }

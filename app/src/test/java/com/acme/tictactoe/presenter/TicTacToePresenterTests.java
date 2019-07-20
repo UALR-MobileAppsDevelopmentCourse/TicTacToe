@@ -1,7 +1,7 @@
 package com.acme.tictactoe.presenter;
 
 
-import com.acme.tictactoe.view.TicTacToeView;
+import com.acme.tictactoe.contract.TicTacToeContract;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -22,7 +22,7 @@ public class TicTacToePresenterTests {
     private TicTacToePresenter presenter;
 
     @Mock
-    private TicTacToeView view;
+    private TicTacToeContract.View view;
 
     @Before
     public void setup() {
