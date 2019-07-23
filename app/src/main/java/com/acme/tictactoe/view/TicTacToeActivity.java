@@ -31,7 +31,6 @@ public class TicTacToeActivity extends AppCompatActivity implements TicTacToeCon
         winnerPlayerLabel = findViewById(R.id.winnerPlayerLabel);
         winnerPlayerViewGroup = findViewById(R.id.winnerPlayerViewGroup);
         buttonGrid = findViewById(R.id.buttonGrid);
-        presenter.setup();
     }
 
     public void onResetClicked(View v) {

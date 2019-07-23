@@ -15,11 +15,6 @@ public class TicTacToePresenter implements TicTacToeContract.Presenter {
     }
 
     @Override
-    public void setup() {
-        model = new Board();
-    }
-
-    @Override
     public void onButtonSelected(int row, int col) {
         Player playerThatMoved = model.mark(row, col);
 

@@ -5,7 +5,6 @@ package com.acme.tictactoe.contract;
  */
 public interface TicTacToeContract {
     interface Presenter {
-        void setup();
         void onButtonSelected(int row, int col);
         void onResetSelected();
     }
