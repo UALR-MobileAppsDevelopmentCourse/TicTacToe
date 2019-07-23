@@ -1,7 +1,7 @@
 package com.acme.tictactoe.viewmodel;
 
-import android.databinding.ObservableArrayMap;
-import android.databinding.ObservableField;
+import androidx.databinding.ObservableArrayMap;
+import androidx.databinding.ObservableField;
 
 import com.acme.tictactoe.model.Board;
 import com.acme.tictactoe.model.Player;
